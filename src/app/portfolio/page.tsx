@@ -10,7 +10,7 @@ import { breadcrumbsFor, generateBreadcrumbJsonLd } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: `Portfolio | ${SITE.name}`,
-  description: 'Real example websites built on the Summit Studio engine — see what\'s live, and what\'s a walkthrough.',
+  description: 'Real, deployed example websites built on the Summit Studio engine — click through and look around.',
   alternates: { canonical: '/portfolio' },
 };
 
@@ -30,10 +30,9 @@ export default function PortfolioPage() {
           <div className="mt-8 max-w-2xl">
             <h1 className="font-display text-display font-semibold text-secondary">See the engine in action</h1>
             <p className="mt-5 text-lg leading-relaxed text-muted">
-              Every site below is a real build on the Summit Studio template — not a mockup, not a screenshot.
+              Every site below is real and live on the Summit Studio template — not a mockup, not a screenshot.
               These are example builds demonstrating the platform, not paying-client engagements — we&rsquo;re
-              telling you that directly rather than letting you assume otherwise. Click through the live one, or
-              ask us for a walkthrough of the other.
+              telling you that directly rather than letting you assume otherwise. Click through and look around.
             </p>
           </div>
         </Container>

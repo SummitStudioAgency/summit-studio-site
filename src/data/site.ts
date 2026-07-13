@@ -248,9 +248,13 @@ export const SITE = {
   // linked to as if it were Summit Studio's own deployed work. That's not
   // a broken-link bug, it's a real trust/misrepresentation problem, caught
   // by a buyer-perspective review and confirmed by directly checking what
-  // each domain actually serves. The one confirmed-real, Summit-Studio-
-  // controlled URL across everything checked is the shared engine
-  // deployment itself — used below instead of a guessed custom domain.
+  // each domain actually serves.
+  //
+  // As of 2026-07-13, both tiers below are pre-built, permanently deployed
+  // demo repos (one-repo-per-demo model, forked from the shared engine) —
+  // no longer the shared engine's own reference deployment plus a
+  // "not live yet" placeholder. See MonkeyVentures/projects/summitstudio/
+  // martinez-landscaping/docs/DEPLOYMENT_GUIDE.md for how these get built.
   portfolio: [
     {
       slug: 'martinez-landscaping-growth',
@@ -261,7 +265,7 @@ export const SITE = {
       description:
         'The Growth package shown in full: an interactive before/after project gallery, a full services×service-area SEO page matrix, and an emergency-response banner built for a trade where same-day calls matter.',
       highlights: ['Before/after gallery slider', 'Services × town SEO matrix', 'Emergency-service banner'],
-      url: 'https://monkey-ventures.vercel.app',
+      url: 'https://demo-martinez-growth.vercel.app',
       image: '/images/portfolio/martinez-growth.png',
     },
     {
@@ -271,11 +275,9 @@ export const SITE = {
       city: 'Wilmington, DE',
       tier: 'Starter',
       description:
-        'The same real business as above, rebuilt at the Starter tier so you can see exactly what changes between packages: a simpler gallery, fewer service pages, no service-area matrix — same design quality throughout. Not separately deployed at its own live URL today — ask us for a walkthrough.',
+        'The same real business as above, rebuilt at the Starter tier so you can see exactly what changes between packages: a simpler gallery, fewer service pages, no service-area matrix — same design quality throughout.',
       highlights: ['Simplified gallery', 'Core service pages', 'Same premium design system'],
-      // No url: this tier isn't independently live anywhere right now — the
-      // engine is a build-time tenant switch, not four simultaneous live
-      // sites, and only the Growth tenant above is actually deployed.
+      url: 'https://demo-martinez-starter.vercel.app',
       image: '/images/portfolio/martinez-starter.png',
     },
   ] satisfies PortfolioEntry[],

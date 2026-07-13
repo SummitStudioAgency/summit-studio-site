@@ -17,7 +17,7 @@ export function PortfolioPreview() {
           <SectionHeading
             eyebrow="See it live"
             title="Real builds, not mockups"
-            intro="Real builds on the Summit Studio engine — click through the live one, or ask us for a walkthrough of the other."
+            intro="Every example below is a real, deployed website on the Summit Studio engine — click through and look around."
             className="mb-0"
           />
           <Reveal delay={0.1}>

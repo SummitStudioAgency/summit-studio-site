@@ -240,45 +240,43 @@ export const SITE = {
   // builds rather than implied client relationships, consistent with
   // Decision 010's honesty standard extended to the agency's own claims.
   //
-  // Only ever link to a URL Summit Studio actually controls. Two entries
-  // that used to be here (Delaware Lawn Crew, PQ Landscaping) were removed
-  // outright — their `url` values were real, live domains belonging to
-  // real, unrelated businesses whose public data was used to build an
-  // internal demo, with no relationship, verification, or consent, then
-  // linked to as if it were Summit Studio's own deployed work. That's not
-  // a broken-link bug, it's a real trust/misrepresentation problem, caught
-  // by a buyer-perspective review and confirmed by directly checking what
-  // each domain actually serves.
+  // Only ever link to a URL Summit Studio actually controls, and only ever
+  // show a business we actually have the right to show publicly.
   //
-  // As of 2026-07-13, both tiers below are pre-built, permanently deployed
-  // demo repos (one-repo-per-demo model, forked from the shared engine) —
-  // no longer the shared engine's own reference deployment plus a
-  // "not live yet" placeholder. See MonkeyVentures/projects/summitstudio/
-  // martinez-landscaping/docs/DEPLOYMENT_GUIDE.md for how these get built.
+  // As of 2026-07-13, the public portfolio below uses "Summit Studio
+  // Landscaping" — a fictional demo company built specifically for this
+  // purpose, not a real business. Martinez Landscaping (the earlier
+  // portfolio entry) is a real business name Summit Studio never had
+  // permission to use as a public-facing showcase; its demo sites are kept
+  // live for real prospect outreach, but reachable only via a direct,
+  // unlisted URL (see src/data/demos.ts + /demo/[slug]) — never linked
+  // here or anywhere else on this site. See MonkeyVentures/projects/
+  // summitstudio/martinez-landscaping/docs/DEPLOYMENT_GUIDE.md for how
+  // these demo repos get built.
   portfolio: [
     {
-      slug: 'martinez-landscaping-growth',
-      business: 'Martinez Landscaping & Tree Services',
-      tagline: 'Landscapes worth coming home to.',
-      city: 'Wilmington, DE',
+      slug: 'summit-studio-landscaping-growth',
+      business: 'Summit Studio Landscaping',
+      tagline: 'Grounds worth stepping outside for.',
+      city: 'Leesburg, VA',
       tier: 'Growth',
       description:
-        'The Growth package shown in full: an interactive before/after project gallery, a full services×service-area SEO page matrix, and an emergency-response banner built for a trade where same-day calls matter.',
-      highlights: ['Before/after gallery slider', 'Services × town SEO matrix', 'Emergency-service banner'],
-      url: 'https://demo-martinez-growth.vercel.app',
-      image: '/images/portfolio/martinez-growth.png',
+        'The Growth package shown in full: an interactive before/after project gallery, a full services×service-area SEO page matrix, and priority storm-cleanup messaging built for a trade where same-day calls matter.',
+      highlights: ['Before/after gallery slider', 'Services × town SEO matrix', 'Priority storm-cleanup banner'],
+      url: 'https://demo-ssl-growth.vercel.app',
+      image: '/images/portfolio/summit-studio-landscaping-growth.jpg',
     },
     {
-      slug: 'martinez-landscaping-starter',
-      business: 'Martinez Landscaping & Tree Services',
+      slug: 'summit-studio-landscaping-starter',
+      business: 'Summit Studio Landscaping',
       tagline: 'Same business, Starter package.',
-      city: 'Wilmington, DE',
+      city: 'Leesburg, VA',
       tier: 'Starter',
       description:
-        'The same real business as above, rebuilt at the Starter tier so you can see exactly what changes between packages: a simpler gallery, fewer service pages, no service-area matrix — same design quality throughout.',
+        'The same fictional business as above, rebuilt at the Starter tier so you can see exactly what changes between packages: a simpler gallery, fewer service pages, no service-area matrix — same design quality throughout.',
       highlights: ['Simplified gallery', 'Core service pages', 'Same premium design system'],
-      url: 'https://demo-martinez-starter.vercel.app',
-      image: '/images/portfolio/martinez-starter.png',
+      url: 'https://demo-ssl-starter.vercel.app',
+      image: '/images/portfolio/summit-studio-landscaping-starter.jpg',
     },
   ] satisfies PortfolioEntry[],
 

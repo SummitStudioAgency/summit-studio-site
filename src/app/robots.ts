@@ -6,7 +6,10 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/api/',
+      // /demo/ hosts hidden, unlisted per-prospect landing pages (never
+      // linked from anywhere on this site) — disallowed here as a second,
+      // independent guard alongside each page's own noindex metadata.
+      disallow: ['/api/', '/demo/'],
     },
     sitemap: `${SITE.url}/sitemap.xml`,
     host: SITE.url,

@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { getClientIp, hashIp } from '@/lib/ip-hash';
+import { checkRateLimit } from '@/lib/rate-limit';
 
 /**
  * POST /api/contact
@@ -7,8 +9,8 @@ import { Resend } from 'resend';
  * Receives lead submissions from the Contact page and emails them via
  * Resend. Ported from martinez-landscaping's /api/estimate — same
  * honeypot + timing-check + spam-keyword-filter + server-side validation
- * layering, since that's genuinely good, already-proven spam defense — but
- * simplified for this form's actual shape:
+ * + rate-limiting layering, since that's genuinely good, already-proven
+ * spam defense — but simplified for this form's actual shape:
  *
  *   - JSON body, not multipart. The estimate form supports photo
  *     attachments (a landscaping client's customers describing a job);
@@ -80,7 +82,22 @@ function validate(body: ContactPayload): string | null {
   return null;
 }
 
+// Keyed by hashed IP, same privacy stance as the rest of this file (never
+// store/compare the raw address) — guards the paid Resend send against a
+// script hammering the endpoint, not real visitors submitting once.
+const CONTACT_RATE_LIMIT = { maxRequests: 5, windowMs: 10 * 60 * 1000 }; // 5 per 10 minutes per IP
+
 export async function POST(request: Request) {
+  const ipHash = hashIp(getClientIp(request) ?? 'unknown');
+  const rateLimit = checkRateLimit(ipHash, CONTACT_RATE_LIMIT);
+  if (!rateLimit.allowed) {
+    console.warn(`[contact] Rate limit exceeded for ipHash=${ipHash}, retry after ${rateLimit.retryAfterMs}ms.`);
+    return NextResponse.json(
+      { ok: false, error: 'Too many requests. Please wait a few minutes and try again, or email us directly instead.' },
+      { status: 429, headers: { 'Retry-After': String(Math.ceil(rateLimit.retryAfterMs / 1000)) } },
+    );
+  }
+
   let body: ContactPayload;
   try {
     body = await request.json();

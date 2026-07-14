@@ -44,7 +44,10 @@ export function PortfolioCard({ entry, priority = false }: { entry: PortfolioEnt
           <p className="text-sm text-muted">{entry.city}</p>
         </div>
         {entry.url ? (
-          <ArrowUpRight className="h-5 w-5 shrink-0 text-muted transition-colors group-hover:text-primary" />
+          <ArrowUpRight
+            className="h-5 w-5 shrink-0 text-muted transition-colors group-hover:text-primary"
+            aria-hidden="true"
+          />
         ) : (
           <span className="shrink-0 whitespace-nowrap rounded-full bg-surface-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-muted">
             Not live yet

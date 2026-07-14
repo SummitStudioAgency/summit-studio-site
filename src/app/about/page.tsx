@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Target, Eye, ShieldCheck, Handshake } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
@@ -7,13 +8,15 @@ import { Reveal } from '@/components/ui/Reveal';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { PageCTA } from '@/components/seo/PageCTA';
 import { SITE } from '@/data/site';
-import { breadcrumbsFor, generateBreadcrumbJsonLd } from '@/lib/seo';
+import { breadcrumbsFor, generateBreadcrumbJsonLd, pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: `About | ${SITE.name}`,
-  description: SITE.mission,
-  alternates: { canonical: '/about' },
-};
+  // A dedicated, search-result-length description — SITE.mission is several
+  // sentences long and was getting truncated mid-thought in SERPs.
+  description: 'Why Summit Studio exists, who we build for, and the operating principles — no fabricated proof, no lock-in — that shape every site we build.',
+  path: '/about',
+});
 
 const PRINCIPLES = [
   {
@@ -106,7 +109,17 @@ export default function AboutPage() {
         <Container>
           <SectionHeading eyebrow="Who we build for" title="A focused starting point, not a scattershot" wide />
           <Reveal delay={0.08}>
-            <p className="mt-8 max-w-3xl text-[17px] leading-relaxed text-muted">{SITE.idealCustomer}</p>
+            <p className="mt-8 max-w-3xl text-[17px] leading-relaxed text-muted">
+              {SITE.idealCustomer} See{' '}
+              <Link href="/portfolio" className="text-primary underline-offset-2 hover:underline">
+                real example builds
+              </Link>{' '}
+              on the engine, or go straight to{' '}
+              <Link href="/pricing" className="text-primary underline-offset-2 hover:underline">
+                pricing
+              </Link>{' '}
+              to see what each tier includes.
+            </p>
           </Reveal>
         </Container>
       </Section>
@@ -117,9 +130,9 @@ export default function AboutPage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {PRINCIPLES.map((p, i) => (
               <Reveal key={p.title} delay={i * 0.06}>
-                <div className="flex gap-4 rounded-4xl border border-foreground/8 bg-background p-6 shadow-soft">
+                <div className="flex gap-4 rounded-4xl border border-foreground/8 bg-background p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/15 hover:shadow-lift">
                   <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-primary/10 text-primary">
-                    <p.icon className="h-5 w-5" />
+                    <p.icon className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <div>
                     <h3 className="font-display text-lg font-semibold text-secondary">{p.title}</h3>

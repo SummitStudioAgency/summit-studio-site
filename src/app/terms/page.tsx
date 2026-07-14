@@ -3,7 +3,7 @@ import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { SITE } from '@/data/site';
-import { breadcrumbsFor, generateBreadcrumbJsonLd } from '@/lib/seo';
+import { breadcrumbsFor, generateBreadcrumbJsonLd, pageMetadata } from '@/lib/seo';
 
 // Same status note as privacy/page.tsx and sales/18-website-service-agreement.md:
 // standard, self-drafted template language, reasonable pre-revenue, worth a
@@ -12,11 +12,11 @@ import { breadcrumbsFor, generateBreadcrumbJsonLd } from '@/lib/seo';
 // by the separate, per-client Website Service Agreement, not this page.
 const LAST_UPDATED = 'July 11, 2026';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: `Terms of Service | ${SITE.name}`,
   description: `Terms governing use of the ${SITE.name} website.`,
-  alternates: { canonical: '/terms' },
-};
+  path: '/terms',
+});
 
 export default function TermsPage() {
   const crumbs = breadcrumbsFor('Terms of Service', '/terms');

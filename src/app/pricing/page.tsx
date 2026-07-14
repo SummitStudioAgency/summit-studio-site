@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Check, Minus } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
@@ -8,14 +9,14 @@ import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { PageCTA } from '@/components/seo/PageCTA';
 import { PricingCard } from '@/components/sections/PricingCard';
 import { SITE } from '@/data/site';
-import { breadcrumbsFor, generateBreadcrumbJsonLd } from '@/lib/seo';
+import { breadcrumbsFor, generateBreadcrumbJsonLd, pageMetadata } from '@/lib/seo';
 import { cn } from '@/lib/utils';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: `Pricing | ${SITE.name}`,
   description: 'Starter, Growth, and Website Care: a setup fee plus a small monthly fee, or no upfront investment at all.',
-  alternates: { canonical: '/pricing' },
-};
+  path: '/pricing',
+});
 
 interface ComparisonRow {
   feature: string;
@@ -42,9 +43,9 @@ const COMPARISON: ComparisonRow[] = [
 function Cell({ value }: { value: string | boolean }) {
   if (typeof value === 'boolean') {
     return value ? (
-      <Check className="mx-auto h-5 w-5 text-highlight" aria-label="Included" />
+      <Check className="mx-auto h-5 w-5 text-highlight" role="img" aria-label="Included" />
     ) : (
-      <Minus className="mx-auto h-5 w-5 text-foreground/20" aria-label="Not included" />
+      <Minus className="mx-auto h-5 w-5 text-foreground/20" role="img" aria-label="Not included" />
     );
   }
   return <span className="text-sm font-medium text-foreground">{value}</span>;
@@ -88,7 +89,7 @@ export default function PricingPage() {
       <Section tone="sage" className="pt-0">
         <Container>
           <h2 className="sr-only">Pricing packages</h2>
-          <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-3">
+          <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-3">
             {packages.map((pkg) => (
               <Reveal key={pkg.name}>
                 <PricingCard pkg={pkg} />
@@ -101,9 +102,9 @@ export default function PricingPage() {
               <h3 className="font-display text-lg font-semibold text-secondary">{customPackage.name}</h3>
               <p className="mt-1.5 text-sm text-muted">{customPackage.description}</p>
               <p className="mt-1 text-2xl font-semibold text-secondary">{customPackage.setupPrice}</p>
-              <a href="/contact" className="mt-3 inline-block text-sm font-semibold text-primary hover:underline">
+              <Link href="/contact" className="mt-3 inline-block text-sm font-semibold text-primary hover:underline">
                 Ask about a custom quote →
-              </a>
+              </Link>
             </div>
           </Reveal>
         </Container>
@@ -115,8 +116,10 @@ export default function PricingPage() {
           <SectionHeading eyebrow="Which is right for you" title="Find your plan in one line" wide />
 
           <Reveal delay={0.06}>
-            <div className="mt-10 overflow-x-auto rounded-4xl border border-foreground/8 shadow-soft">
+            <p className="mt-10 text-xs text-muted sm:hidden">Scroll to see the full table →</p>
+            <div className="mt-2 overflow-x-auto rounded-4xl border border-foreground/8 shadow-soft sm:mt-10">
               <table className="w-full min-w-[480px] border-collapse bg-background text-left">
+                <caption className="sr-only">Which Summit Studio plan is best for your situation</caption>
                 <thead>
                   <tr className="border-b border-foreground/8">
                     <th className="px-6 py-4 text-sm font-semibold text-muted">Option</th>
@@ -155,8 +158,10 @@ export default function PricingPage() {
           <SectionHeading eyebrow="Compare plans" title="Exactly what's different, side by side" wide />
 
           <Reveal delay={0.08}>
-            <div className="mt-10 overflow-x-auto rounded-4xl border border-foreground/8 shadow-soft">
+            <p className="mt-10 text-xs text-muted lg:hidden">Scroll to see the full table →</p>
+            <div className="mt-2 overflow-x-auto rounded-4xl border border-foreground/8 shadow-soft lg:mt-10">
               <table className="w-full min-w-[640px] border-collapse bg-background text-left">
+                <caption className="sr-only">Feature comparison across Starter, Growth, and Website Care plans</caption>
                 <thead>
                   <tr className="border-b border-foreground/8">
                     <th className="px-6 py-4 text-sm font-semibold text-muted">Feature</th>

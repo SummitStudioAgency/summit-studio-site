@@ -24,7 +24,7 @@ export function Hero() {
         <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-6">
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
+              <span className="inline-flex items-center gap-2 rounded-2xl bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary sm:rounded-full sm:text-sm">
                 Website design for landscaping &amp; home-service businesses
               </span>
             </Reveal>
@@ -43,7 +43,7 @@ export function Hero() {
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Button href="/contact" size="lg">
                   Get a free demo
-                  <ArrowRight className="h-5 w-5" />
+                  <ArrowRight className="h-5 w-5" aria-hidden="true" />
                 </Button>
                 <Button href="/portfolio" variant="outline" size="lg">
                   See our work
@@ -54,7 +54,7 @@ export function Hero() {
               <ul className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-8">
                 {TRUST_POINTS.map((point) => (
                   <li key={point} className="flex items-center gap-2 text-sm text-foreground">
-                    <CheckCircle2 className="h-4 w-4 shrink-0 text-highlight" />
+                    <CheckCircle2 className="h-4 w-4 shrink-0 text-highlight" aria-hidden="true" />
                     {point}
                   </li>
                 ))}

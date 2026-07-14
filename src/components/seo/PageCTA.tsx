@@ -20,10 +20,10 @@ export function PageCTA({ heading, subhead }: PageCTAProps) {
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button href="/contact" size="lg">
               Get a free demo
-              <ArrowRight className="h-5 w-5" />
+              <ArrowRight className="h-5 w-5" aria-hidden="true" />
             </Button>
             <Button href={SITE.emailHref} variant="onDark" size="lg">
-              <Mail className="h-5 w-5" />
+              <Mail className="h-5 w-5" aria-hidden="true" />
               {SITE.email}
             </Button>
           </div>

@@ -48,7 +48,10 @@ export function PricingCard({ pkg }: { pkg: PricingPackage }) {
       <ul className="mt-7 flex-1 space-y-3">
         {pkg.features.map((feature) => (
           <li key={feature} className="flex items-start gap-2.5 text-sm leading-relaxed">
-            <Check className={cn('mt-0.5 h-4 w-4 shrink-0', pkg.highlighted ? 'text-accent-soft' : 'text-highlight')} />
+            <Check
+              className={cn('mt-0.5 h-4 w-4 shrink-0', pkg.highlighted ? 'text-accent-soft' : 'text-highlight')}
+              aria-hidden="true"
+            />
             <span className={pkg.highlighted ? 'text-surface-50/90' : 'text-foreground'}>{feature}</span>
           </li>
         ))}

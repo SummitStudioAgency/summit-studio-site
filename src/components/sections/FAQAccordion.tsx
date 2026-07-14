@@ -24,11 +24,16 @@ export function FAQAccordion({ items }: { items: ReadonlyArray<FAQItem> }) {
               type="button"
               onClick={() => setOpen(open === i ? null : i)}
               aria-expanded={open === i}
-              className="flex w-full items-center justify-between gap-4 py-5 text-left"
+              className="group flex w-full items-center justify-between gap-4 py-5 text-left"
             >
-              <span className="font-display text-[17px] font-semibold text-secondary">{item.question}</span>
+              <span className="font-display text-[17px] font-semibold text-secondary transition-colors group-hover:text-primary">
+                {item.question}
+              </span>
               <ChevronDown
-                className={cn('h-5 w-5 shrink-0 text-muted transition-transform duration-300', open === i && 'rotate-180')}
+                className={cn(
+                  'h-5 w-5 shrink-0 text-muted transition-transform duration-300 group-hover:text-primary',
+                  open === i && 'rotate-180',
+                )}
                 aria-hidden="true"
               />
             </button>

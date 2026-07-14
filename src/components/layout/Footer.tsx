@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Mail, ShieldCheck } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Logo } from '@/components/ui/Logo';
@@ -16,7 +17,7 @@ export function Footer() {
             <Logo invert />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-surface/70">{SITE.mission}</p>
             <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-surface-50/10 px-3.5 py-1.5 text-xs font-semibold text-accent-soft">
-              <ShieldCheck className="h-4 w-4" />
+              <ShieldCheck className="h-4 w-4" aria-hidden="true" />
               You always own your domain
             </div>
           </div>
@@ -27,20 +28,20 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-sm text-surface/80 transition-colors hover:text-surface-50">
+                  <Link href={link.href} className="text-sm text-surface/80 transition-colors hover:text-surface-50">
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li>
-                <a href="/terms" className="text-sm text-surface/80 transition-colors hover:text-surface-50">
+                <Link href="/terms" className="text-sm text-surface/80 transition-colors hover:text-surface-50">
                   Terms of Service
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/privacy" className="text-sm text-surface/80 transition-colors hover:text-surface-50">
+                <Link href="/privacy" className="text-sm text-surface/80 transition-colors hover:text-surface-50">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -51,12 +52,12 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-surface/80">
               <li>
                 <a href={SITE.emailHref} className="inline-flex items-center gap-2.5 transition-colors hover:text-surface-50">
-                  <Mail className="h-4 w-4 shrink-0 text-highlight" />
+                  <Mail className="h-4 w-4 shrink-0 text-highlight" aria-hidden="true" />
                   {SITE.email}
                 </a>
               </li>
             </ul>
-            <Button href="/contact" size="sm" className="mt-5">
+            <Button href="/contact" size="md" className="mt-5">
               Get a demo
             </Button>
           </div>
@@ -66,13 +67,13 @@ export function Footer() {
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-surface-50/10 pt-8 text-xs text-surface/60 sm:flex-row">
           <p>
             © {year} {SITE.legalName}. All rights reserved. ·{' '}
-            <a href="/privacy" className="transition-colors hover:text-surface-50">
+            <Link href="/privacy" className="transition-colors hover:text-surface-50">
               Privacy Policy
-            </a>{' '}
+            </Link>{' '}
             ·{' '}
-            <a href="/terms" className="transition-colors hover:text-surface-50">
+            <Link href="/terms" className="transition-colors hover:text-surface-50">
               Terms
-            </a>
+            </Link>
           </p>
           <span className="text-surface/40">Built on the Summit Studio engine</span>
         </div>

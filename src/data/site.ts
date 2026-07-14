@@ -250,9 +250,9 @@ export const SITE = {
   // permission to use as a public-facing showcase; its demo sites are kept
   // live for real prospect outreach, but reachable only via a direct,
   // unlisted URL (see src/data/demos.ts + /demo/[slug]) — never linked
-  // here or anywhere else on this site. See MonkeyVentures/projects/
-  // summitstudio/martinez-landscaping/docs/DEPLOYMENT_GUIDE.md for how
-  // these demo repos get built.
+  // here or anywhere else on this site. See the demo-martinez-growth and
+  // demo-martinez-starter repos' docs/DEPLOYMENT_GUIDE.md for how these
+  // demo repos get built.
   portfolio: [
     {
       slug: 'summit-studio-landscaping-growth',
@@ -313,9 +313,29 @@ export const SITE = {
         'Because Website Care never charged a setup fee, the site stays part of the managed service rather than transferring to you the way a paid-in-full Starter or Growth site does. If you’d like to keep the site instead of continuing the plan, ask us about a buyout.',
     },
     {
+      question: 'Can I move my site to another developer or host later?',
+      answer:
+        'On Starter and Growth, yes to a real degree — you own your domain independent of us, and once your setup fee is paid in full you own your site’s content and the site as deployed, so you can point your domain elsewhere and take it with you. (Website Care works differently — see “Do I own my website?” above.) What never transfers, on any plan, is the underlying Summit Studio template system itself — the design system and code that power every client’s site. A new developer would be picking up your deployed site, not our internal engine, to build from there.',
+    },
+    {
+      question: 'Can I host the site myself instead of through Summit Studio?',
+      answer:
+        'While you’re on an active plan, no — hosting, security, and support are bundled into the monthly fee and managed by us, which is part of what keeps the cost low and your side of it hands-off. Your domain is always yours independent of hosting, though, so you’re never locked in: on Starter or Growth you can point it to any host you choose if you leave. On Website Care, remember it’s the site itself — not just the hosting — that stays part of the managed service unless you buy it out.',
+    },
+    {
+      question: 'What happens to my website if Summit Studio ever stops operating?',
+      answer:
+        'Your domain is always yours, regardless of plan or payment status — we never hold it hostage, and that’s true from day one. On Starter and Growth, once your setup fee is paid in full you also own your site’s content and the deployed site itself, so you wouldn’t be left with nothing. We’re a new studio without years of operating history to point to yet, and we’d rather say that plainly than promise something we can’t back up.',
+    },
+    {
       question: 'What does the price actually include?',
       answer:
         'A finished, mobile-responsive website built on the Summit Studio template, with the services and service-area pages your package includes, a working contact form, SEO metadata, hosting and support already bundled into the monthly fee, and a revision round before launch. See the Pricing page for exactly what’s in each plan.',
+    },
+    {
+      question: 'Do you design a custom site, or do I get a template?',
+      answer:
+        'Every site is built on one proven Summit Studio design system rather than designed from a blank page each time — that’s what makes the fast turnaround and fixed pricing possible. Within that system, your site is built from your real business details, services, service area, and photos, not generic placeholder content. It’s a shared engine, not a shared site.',
     },
     {
       question: 'Is there a contract for ongoing hosting?',

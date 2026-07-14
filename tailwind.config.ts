@@ -17,6 +17,7 @@ const config: Config = {
         accent: TOKENS.colors.accent,
         highlight: TOKENS.colors.highlight,
         tertiary: TOKENS.colors.tertiary,
+        danger: TOKENS.colors.danger,
         background: TOKENS.colors.background,
         surface: TOKENS.colors.surface,
         foreground: TOKENS.colors.foreground,

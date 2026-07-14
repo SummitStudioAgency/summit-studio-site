@@ -3,7 +3,7 @@ import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { SITE } from '@/data/site';
-import { breadcrumbsFor, generateBreadcrumbJsonLd } from '@/lib/seo';
+import { breadcrumbsFor, generateBreadcrumbJsonLd, pageMetadata } from '@/lib/seo';
 
 // Bump this when the policy text actually changes — not tied to deploy date.
 // Standard, self-drafted template language (same status as
@@ -12,11 +12,11 @@ import { breadcrumbsFor, generateBreadcrumbJsonLd } from '@/lib/seo';
 // attorney pass before this is ever load-bearing in a dispute.
 const LAST_UPDATED = 'July 11, 2026';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: `Privacy Policy | ${SITE.name}`,
   description: `How ${SITE.legalName} collects, uses, and protects information submitted through this website.`,
-  alternates: { canonical: '/privacy' },
-};
+  path: '/privacy',
+});
 
 export default function PrivacyPage() {
   const crumbs = breadcrumbsFor('Privacy Policy', '/privacy');

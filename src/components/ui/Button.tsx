@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { TOKENS } from '@/data/tokens';
 
@@ -20,7 +21,7 @@ type ButtonAsLink = BaseProps &
 type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const base = cn(
-  'inline-flex items-center justify-center gap-2 font-semibold transition-all duration-200 ease-out-expo focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60',
+  'inline-flex items-center justify-center gap-2 font-semibold transition-all duration-200 ease-out-expo focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[0.97] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-60',
   TOKENS.buttonStyle.radius,
 );
 
@@ -45,13 +46,24 @@ const sizes: Record<Size, string> = {
   lg: 'h-13 px-8 text-base py-3.5',
 };
 
-/** Renders an <a> when `href` is provided, otherwise a <button>. */
+/**
+ * Renders a <button> with no `href`. With one, renders next/link's <Link>
+ * for internal paths (client-side transitions + prefetch) or a plain <a>
+ * for anything else (mailto:, tel:, external http(s) URLs).
+ */
 export function Button(props: ButtonProps) {
   const { variant = 'primary', size = 'md', className, children } = props;
   const classes = cn(base, variants[variant], sizes[size], className);
 
   if (props.href !== undefined) {
     const { variant: _v, size: _s, className: _c, children: _ch, ...rest } = props;
+    if (rest.href.startsWith('/')) {
+      return (
+        <Link className={classes} {...rest}>
+          {children}
+        </Link>
+      );
+    }
     return (
       <a className={classes} {...rest}>
         {children}

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Mail, Clock, ShieldCheck } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
@@ -6,13 +7,13 @@ import { Reveal } from '@/components/ui/Reveal';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { ContactForm } from '@/components/sections/ContactForm';
 import { SITE } from '@/data/site';
-import { breadcrumbsFor, generateBreadcrumbJsonLd } from '@/lib/seo';
+import { breadcrumbsFor, generateBreadcrumbJsonLd, pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: `Contact | ${SITE.name}`,
   description: 'Tell us about your business and we’ll put together a real demo website before you commit to anything.',
-  alternates: { canonical: '/contact' },
-};
+  path: '/contact',
+});
 
 export default function ContactPage() {
   const crumbs = breadcrumbsFor('Contact', '/contact');
@@ -44,11 +45,11 @@ export default function ContactPage() {
                   aria-label={`Email Summit Studio at ${SITE.email}`}
                 >
                   <span className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-primary/15 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-surface-50">
-                    <Mail className="h-7 w-7" />
+                    <Mail className="h-7 w-7" aria-hidden="true" />
                   </span>
-                  <span className="flex-1">
+                  <span className="min-w-0 flex-1">
                     <span className="block text-xs font-semibold uppercase tracking-wider text-muted">Email us directly</span>
-                    <span className="mt-0.5 block text-xl font-bold text-secondary">{SITE.email}</span>
+                    <span className="mt-0.5 block break-words text-xl font-bold text-secondary">{SITE.email}</span>
                     <span className="block text-xs text-muted">We typically respond within 24 hours</span>
                   </span>
                 </a>
@@ -57,7 +58,7 @@ export default function ContactPage() {
               <ul className="mt-4 space-y-3">
                 <li className="flex items-center gap-4 rounded-2xl border border-foreground/5 bg-background p-6 shadow-soft">
                   <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
-                    <Clock className="h-5 w-5" />
+                    <Clock className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <span>
                     <span className="block text-xs font-semibold uppercase tracking-wider text-muted">Response time</span>
@@ -66,7 +67,7 @@ export default function ContactPage() {
                 </li>
                 <li className="flex items-center gap-4 rounded-2xl border border-foreground/5 bg-background p-6 shadow-soft">
                   <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
-                    <ShieldCheck className="h-5 w-5" />
+                    <ShieldCheck className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <span>
                     <span className="block text-xs font-semibold uppercase tracking-wider text-muted">No obligation</span>
@@ -74,6 +75,14 @@ export default function ContactPage() {
                   </span>
                 </li>
               </ul>
+
+              <p className="mt-4 text-sm text-muted">
+                Not ready to reach out yet?{' '}
+                <Link href="/faq" className="font-medium text-primary underline-offset-2 hover:underline">
+                  Read answers to common questions
+                </Link>{' '}
+                about pricing, ownership, and timeline first.
+              </p>
             </div>
 
             {/* Form column */}

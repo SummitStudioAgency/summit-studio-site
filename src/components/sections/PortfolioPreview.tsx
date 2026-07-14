@@ -23,7 +23,7 @@ export function PortfolioPreview() {
           <Reveal delay={0.1}>
             <Button href="/portfolio" variant="outline">
               View full portfolio
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Button>
           </Reveal>
         </div>

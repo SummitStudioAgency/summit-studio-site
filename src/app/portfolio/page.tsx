@@ -6,13 +6,13 @@ import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { PageCTA } from '@/components/seo/PageCTA';
 import { PortfolioCard } from '@/components/sections/PortfolioCard';
 import { SITE } from '@/data/site';
-import { breadcrumbsFor, generateBreadcrumbJsonLd } from '@/lib/seo';
+import { breadcrumbsFor, generateBreadcrumbJsonLd, pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: `Portfolio | ${SITE.name}`,
   description: 'Real, deployed example websites built on the Summit Studio engine — click through and look around.',
-  alternates: { canonical: '/portfolio' },
-};
+  path: '/portfolio',
+});
 
 export default function PortfolioPage() {
   const crumbs = breadcrumbsFor('Portfolio', '/portfolio');

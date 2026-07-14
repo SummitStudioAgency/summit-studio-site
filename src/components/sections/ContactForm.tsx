@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
-import { CheckCircle2, Loader2, Mail, ShieldCheck } from 'lucide-react';
+import Link from 'next/link';
+import { CheckCircle2, ChevronDown, Loader2, Mail, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
 import { SITE } from '@/data/site';
@@ -103,9 +104,9 @@ export function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="flex min-h-[24rem] flex-col items-center justify-center text-center" role="status">
+      <div className="feedback-in flex min-h-[24rem] flex-col items-center justify-center text-center" role="status">
         <span className="grid h-16 w-16 place-items-center rounded-full bg-highlight/15 text-highlight">
-          <CheckCircle2 className="h-9 w-9" />
+          <CheckCircle2 className="h-9 w-9" aria-hidden="true" />
         </span>
         <h3 className="mt-5 font-display text-2xl font-semibold text-secondary">Message received.</h3>
         <p className="mt-2 max-w-sm text-muted">
@@ -121,7 +122,7 @@ export function ContactForm() {
   return (
     <>
       <div className="mb-7 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-        <Mail className="h-4 w-4" />
+        <Mail className="h-4 w-4" aria-hidden="true" />
         We typically respond within 24 hours
       </div>
 
@@ -139,7 +140,7 @@ export function ContactForm() {
           </legend>
           <div>
             <label htmlFor="name" className="mb-2 block text-sm font-medium text-secondary">
-              Name <span className="text-accent">*</span>
+              Name <span className="text-danger">*</span>
             </label>
             <input
               id="name"
@@ -148,12 +149,12 @@ export function ContactForm() {
               required
               autoComplete="name"
               placeholder="Jane Doe"
-              className={cn(fieldBase, fieldErrors.name && 'border-accent focus:border-accent focus:ring-accent/20')}
+              className={cn(fieldBase, fieldErrors.name && 'border-danger focus:border-danger focus:ring-danger/20')}
               aria-invalid={Boolean(fieldErrors.name)}
               aria-describedby={fieldErrors.name ? 'name-error' : undefined}
             />
             {fieldErrors.name && (
-              <p id="name-error" role="alert" className="mt-1.5 text-xs text-accent">
+              <p id="name-error" role="alert" className="feedback-in mt-1.5 text-xs text-danger">
                 {fieldErrors.name}
               </p>
             )}
@@ -161,7 +162,7 @@ export function ContactForm() {
           <div className="grid gap-5 sm:grid-cols-2">
             <div>
               <label htmlFor="email" className="mb-2 block text-sm font-medium text-secondary">
-                Email <span className="text-accent">*</span>
+                Email <span className="text-danger">*</span>
               </label>
               <input
                 id="email"
@@ -170,12 +171,12 @@ export function ContactForm() {
                 required
                 autoComplete="email"
                 placeholder="jane@email.com"
-                className={cn(fieldBase, fieldErrors.email && 'border-accent focus:border-accent focus:ring-accent/20')}
+                className={cn(fieldBase, fieldErrors.email && 'border-danger focus:border-danger focus:ring-danger/20')}
                 aria-invalid={Boolean(fieldErrors.email)}
                 aria-describedby={fieldErrors.email ? 'email-error' : undefined}
               />
               {fieldErrors.email && (
-                <p id="email-error" role="alert" className="mt-1.5 text-xs text-accent">
+                <p id="email-error" role="alert" className="feedback-in mt-1.5 text-xs text-danger">
                   {fieldErrors.email}
                 </p>
               )}
@@ -190,12 +191,12 @@ export function ContactForm() {
                 type="tel"
                 autoComplete="tel"
                 placeholder="(302) 555-0123"
-                className={cn(fieldBase, fieldErrors.phone && 'border-accent focus:border-accent focus:ring-accent/20')}
+                className={cn(fieldBase, fieldErrors.phone && 'border-danger focus:border-danger focus:ring-danger/20')}
                 aria-invalid={Boolean(fieldErrors.phone)}
                 aria-describedby={fieldErrors.phone ? 'phone-error' : undefined}
               />
               {fieldErrors.phone && (
-                <p id="phone-error" role="alert" className="mt-1.5 text-xs text-accent">
+                <p id="phone-error" role="alert" className="feedback-in mt-1.5 text-xs text-danger">
                   {fieldErrors.phone}
                 </p>
               )}
@@ -233,15 +234,26 @@ export function ContactForm() {
               <label htmlFor="packageInterest" className="mb-2 block text-sm font-medium text-secondary">
                 Which are you interested in?
               </label>
-              <select id="packageInterest" name="packageInterest" defaultValue="" className={cn(fieldBase, 'appearance-none')}>
-                <option value="" disabled>
-                  Select an option…
-                </option>
-                <option value="Starter">Starter</option>
-                <option value="Growth">Growth</option>
-                <option value="Website Care">Website Care</option>
-                <option value="Not sure yet">Not sure yet</option>
-              </select>
+              <div className="relative">
+                <select
+                  id="packageInterest"
+                  name="packageInterest"
+                  defaultValue=""
+                  className={cn(fieldBase, 'appearance-none pr-11')}
+                >
+                  <option value="" disabled>
+                    Select an option…
+                  </option>
+                  <option value="Starter">Starter</option>
+                  <option value="Growth">Growth</option>
+                  <option value="Website Care">Website Care</option>
+                  <option value="Not sure yet">Not sure yet</option>
+                </select>
+                <ChevronDown
+                  className="pointer-events-none absolute right-5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted"
+                  aria-hidden="true"
+                />
+              </div>
             </div>
             <div>
               <label htmlFor="message" className="mb-2 block text-sm font-medium text-secondary">
@@ -260,7 +272,7 @@ export function ContactForm() {
 
         <div className="border-t border-foreground/5 pt-6">
           {status === 'error' && (
-            <p className="mb-5 rounded-2xl bg-accent/10 px-4 py-3 text-sm text-accent" role="alert">
+            <p className="feedback-in mb-5 rounded-2xl bg-danger/10 px-4 py-3 text-sm text-danger" role="alert">
               {error}
             </p>
           )}
@@ -268,17 +280,17 @@ export function ContactForm() {
             <Button type="submit" size="lg" disabled={status === 'submitting'}>
               {status === 'submitting' ? (
                 <>
-                  <Loader2 className="h-5 w-5 animate-spin" />
+                  <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />
                   Sending…
                 </>
               ) : (
                 'Send message'
               )}
             </Button>
-            <a href="/privacy" className="inline-flex items-center gap-1.5 text-xs text-muted hover:text-foreground">
-              <ShieldCheck className="h-3.5 w-3.5 text-highlight" />
+            <Link href="/privacy" className="inline-flex items-center gap-1.5 text-xs text-muted hover:text-foreground">
+              <ShieldCheck className="h-3.5 w-3.5 text-highlight" aria-hidden="true" />
               Your info is never shared — see our Privacy Policy
-            </a>
+            </Link>
           </div>
         </div>
       </form>

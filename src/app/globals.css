@@ -41,6 +41,24 @@
   .skip-link {
     @apply absolute left-4 top-4 z-[100] -translate-y-20 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-surface-50 shadow-lift transition-transform focus:translate-y-0;
   }
+
+  /* Quick appear for inline form feedback (field errors, status banners) —
+     deliberately short and opacity/translate-only so the reduced-motion
+     media query below (which zeroes animation-duration) fully neutralizes it. */
+  .feedback-in {
+    animation: feedback-in 180ms ease-out;
+  }
+}
+
+@keyframes feedback-in {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

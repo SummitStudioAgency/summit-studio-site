@@ -31,9 +31,18 @@ export const TOKENS = {
       soft: '#DEBD86',
     },
     // Supporting accent — icons, small highlights, secondary detail color.
-    highlight: '#4F7C6C',
+    // Darkened from the original #4F7C6C: at that value, text set in this
+    // color (eyebrow labels, the "Best for" tag) contrast-checked at 4.35:1
+    // against `background` — under the 4.5:1 WCAG AA minimum for small
+    // text. This value holds ~5.9:1 in the same hue family.
+    highlight: '#3E6555',
     // Additional supporting tone, reserved for future use.
     tertiary: '#5B6B5E',
+    // Form validation state only (required-field marks, error text/borders).
+    // `accent` (#C79A56) contrast-checks at just 2.35:1 against `background`
+    // — nowhere near readable for error copy — so error states get their
+    // own color rather than reusing a brand accent that fails at text size.
+    danger: '#B23B3B',
 
     background: '#F7F5F0', // page background
     surface: {

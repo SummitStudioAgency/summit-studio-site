@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import type { BreadcrumbItem } from '@/lib/seo';
 
@@ -20,9 +21,9 @@ export function Breadcrumbs({ items }: BreadcrumbsProps) {
                 {item.label}
               </span>
             ) : (
-              <a href={item.href} className="transition-colors hover:text-foreground">
+              <Link href={item.href} className="transition-colors hover:text-foreground">
                 {item.label}
-              </a>
+              </Link>
             )}
           </li>
         ))}

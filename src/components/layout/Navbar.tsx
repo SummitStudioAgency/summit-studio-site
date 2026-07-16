@@ -23,6 +23,7 @@ export function Navbar() {
   const reduce = useReducedMotion();
   const pathname = usePathname();
   const menuToggleRef = useRef<HTMLButtonElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -45,8 +46,25 @@ export function Navbar() {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [open]);
 
+  // Tapping/clicking anywhere outside the header (menu + toggle) closes the
+  // menu, same as tapping the X — pointerdown so it fires before any link
+  // underneath gets a click.
+  useEffect(() => {
+    if (!open) return;
+    function handlePointerDown(e: PointerEvent) {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener('pointerdown', handlePointerDown);
+    return () => document.removeEventListener('pointerdown', handlePointerDown);
+  }, [open]);
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-foreground/5 bg-background/90 backdrop-blur-md">
+    <header
+      ref={headerRef}
+      className="fixed inset-x-0 top-0 z-50 border-b border-foreground/5 bg-background/90 backdrop-blur-md"
+    >
       <Container className="flex h-18 items-center justify-between py-3">
         <Link
           href="/"

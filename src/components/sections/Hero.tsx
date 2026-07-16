@@ -19,7 +19,7 @@ const TRUST_POINTS = ['A real demo before you commit', 'Fixed, transparent prici
  */
 export function Hero() {
   return (
-    <section id="top" className="bg-background pb-16 pt-8 sm:pb-24 sm:pt-12">
+    <section id="top" className="overflow-x-clip bg-background pb-16 pt-8 sm:pb-24 sm:pt-12">
       <Container>
         <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-6">

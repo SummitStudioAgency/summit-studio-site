@@ -116,14 +116,13 @@ export default function PricingPage() {
           <SectionHeading eyebrow="Which is right for you" title="Find your plan in one line" wide />
 
           <Reveal delay={0.06}>
-            <p className="mt-10 text-xs text-muted sm:hidden">Scroll to see the full table →</p>
-            <div className="mt-2 overflow-x-auto rounded-4xl border border-foreground/8 shadow-soft sm:mt-10">
-              <table className="w-full min-w-[480px] border-collapse bg-background text-left">
+            <div className="mt-10 overflow-x-auto rounded-4xl border border-foreground/8 shadow-soft">
+              <table className="w-full border-collapse bg-background text-left">
                 <caption className="sr-only">Which Summit Studio plan is best for your situation</caption>
                 <thead>
                   <tr className="border-b border-foreground/8">
-                    <th className="px-6 py-4 text-sm font-semibold text-muted">Option</th>
-                    <th className="px-6 py-4 text-sm font-semibold text-muted">Best for</th>
+                    <th className="px-4 py-4 text-sm font-semibold text-muted sm:px-6">Option</th>
+                    <th className="px-4 py-4 text-sm font-semibold text-muted sm:px-6">Best for</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -132,7 +131,7 @@ export default function PricingPage() {
                       key={row.option}
                       className={cn('border-b border-foreground/6 last:border-0', i % 2 === 1 && 'bg-surface-50/60')}
                     >
-                      <td className="px-6 py-4">
+                      <td className="whitespace-nowrap px-4 py-4 sm:px-6">
                         <span className={cn('text-sm font-semibold', row.recommended ? 'text-primary' : 'text-secondary')}>
                           {row.option}
                           {row.recommended && (
@@ -142,7 +141,7 @@ export default function PricingPage() {
                           )}
                         </span>
                       </td>
-                      <td className="px-6 py-4 text-sm text-foreground">{row.description}</td>
+                      <td className="px-4 py-4 text-sm text-foreground sm:px-6">{row.description}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -164,7 +163,9 @@ export default function PricingPage() {
                 <caption className="sr-only">Feature comparison across Starter, Growth, and Website Care plans</caption>
                 <thead>
                   <tr className="border-b border-foreground/8">
-                    <th className="px-6 py-4 text-sm font-semibold text-muted">Feature</th>
+                    <th className="sticky left-0 z-10 border-r border-foreground/8 bg-background px-6 py-4 text-sm font-semibold text-muted">
+                      Feature
+                    </th>
                     <th className="px-6 py-4 text-center text-sm font-semibold text-secondary">Starter</th>
                     <th className="bg-primary/5 px-6 py-4 text-center text-sm font-semibold text-secondary">Growth ⭐</th>
                     <th className="px-6 py-4 text-center text-sm font-semibold text-secondary">Website Care</th>
@@ -176,7 +177,14 @@ export default function PricingPage() {
                       key={row.feature}
                       className={cn('border-b border-foreground/6 last:border-0', i % 2 === 1 && 'bg-surface-50/60')}
                     >
-                      <td className="px-6 py-4 text-sm text-foreground">{row.feature}</td>
+                      <td
+                        className={cn(
+                          'sticky left-0 z-10 border-r border-foreground/8 px-6 py-4 text-sm text-foreground',
+                          i % 2 === 1 ? 'bg-surface-50' : 'bg-background',
+                        )}
+                      >
+                        {row.feature}
+                      </td>
                       <td className="px-6 py-4 text-center">
                         <Cell value={row.starter} />
                       </td>

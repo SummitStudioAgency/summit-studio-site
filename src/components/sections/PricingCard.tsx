@@ -10,7 +10,7 @@ export function PricingCard({ pkg }: { pkg: PricingPackage }) {
   return (
     <div
       className={cn(
-        'flex h-full flex-col rounded-4xl border p-8 shadow-soft',
+        'flex h-full flex-col rounded-4xl border p-8 shadow-soft transition-all hover:-translate-y-1 hover:shadow-lift',
         pkg.highlighted ? 'border-primary/30 bg-primary text-surface-50' : 'border-foreground/8 bg-background',
       )}
     >

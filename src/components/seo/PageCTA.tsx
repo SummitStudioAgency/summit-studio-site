@@ -16,7 +16,7 @@ export function PageCTA({ heading, subhead }: PageCTAProps) {
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-semibold text-surface-50">{heading}</h2>
-          {subhead && <p className="mt-4 text-lg leading-relaxed text-surface-50/70">{subhead}</p>}
+          {subhead && <p className="mt-4 break-words text-lg leading-relaxed text-surface-50/70">{subhead}</p>}
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button href="/contact" size="lg">
               Get a free demo

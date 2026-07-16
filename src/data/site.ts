@@ -255,28 +255,28 @@ export const SITE = {
   // demo repos get built.
   portfolio: [
     {
+      slug: 'summit-studio-landscaping-starter',
+      business: 'Summit Studio Landscaping',
+      tagline: 'The Starter package, live.',
+      city: 'Leesburg, VA',
+      tier: 'Starter',
+      description:
+        'The Starter package shown in full: a simpler gallery, fewer service pages, no service-area matrix — same premium design system, at the entry-level tier.',
+      highlights: ['Simplified gallery', 'Core service pages', 'Same premium design system'],
+      url: 'https://demo-ssl-starter.vercel.app',
+      image: '/images/portfolio/summit-studio-landscaping-starter.jpg',
+    },
+    {
       slug: 'summit-studio-landscaping-growth',
       business: 'Summit Studio Landscaping',
       tagline: 'Grounds worth stepping outside for.',
       city: 'Leesburg, VA',
       tier: 'Growth',
       description:
-        'The Growth package shown in full: an interactive before/after project gallery, a full services×service-area SEO page matrix, and priority storm-cleanup messaging built for a trade where same-day calls matter.',
+        'The same fictional business as above, rebuilt at the Growth tier: an interactive before/after project gallery, a full services×service-area SEO page matrix, and priority storm-cleanup messaging built for a trade where same-day calls matter.',
       highlights: ['Before/after gallery slider', 'Services × town SEO matrix', 'Priority storm-cleanup banner'],
       url: 'https://demo-ssl-growth.vercel.app',
       image: '/images/portfolio/summit-studio-landscaping-growth.jpg',
-    },
-    {
-      slug: 'summit-studio-landscaping-starter',
-      business: 'Summit Studio Landscaping',
-      tagline: 'Same business, Starter package.',
-      city: 'Leesburg, VA',
-      tier: 'Starter',
-      description:
-        'The same fictional business as above, rebuilt at the Starter tier so you can see exactly what changes between packages: a simpler gallery, fewer service pages, no service-area matrix — same design quality throughout.',
-      highlights: ['Simplified gallery', 'Core service pages', 'Same premium design system'],
-      url: 'https://demo-ssl-starter.vercel.app',
-      image: '/images/portfolio/summit-studio-landscaping-starter.jpg',
     },
   ] satisfies PortfolioEntry[],
 

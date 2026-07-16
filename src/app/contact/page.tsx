@@ -29,7 +29,7 @@ export default function ContactPage() {
         <Container>
           <Breadcrumbs items={crumbs} />
 
-          <div className="mt-8 grid items-start gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="mt-8 grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-14">
             {/* Info column */}
             <div className="lg:col-span-5">
               <h1 className="font-display text-display font-semibold text-secondary">Let&rsquo;s build your free demo</h1>

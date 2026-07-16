@@ -10,7 +10,7 @@ import { breadcrumbsFor, generateBreadcrumbJsonLd, pageMetadata } from '@/lib/se
 // sales/18-website-service-agreement.md — see that file's top-of-file
 // warning): reasonable for a pre-revenue marketing site, worth a real
 // attorney pass before this is ever load-bearing in a dispute.
-const LAST_UPDATED = 'July 11, 2026';
+const LAST_UPDATED = 'July 16, 2026';
 
 export const metadata: Metadata = pageMetadata({
   title: `Privacy Policy | ${SITE.name}`,
@@ -108,14 +108,6 @@ export default function PrivacyPage() {
               <p className="mt-3">
                 You can ask us at any time what information we have about you, or ask us to correct or delete it,
                 by contacting us using the information below.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="font-display text-xl font-semibold text-secondary">Children&rsquo;s privacy</h2>
-              <p className="mt-3">
-                This site and our services are directed at business owners. We do not knowingly collect
-                information from children.
               </p>
             </section>
 

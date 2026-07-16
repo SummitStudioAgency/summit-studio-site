@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
@@ -6,11 +7,14 @@ import { Reveal } from '@/components/ui/Reveal';
 const TRUST_POINTS = ['A real demo before you commit', 'Fixed, transparent pricing', 'You always own your domain'];
 
 /**
- * No hero photograph — this is Summit Studio's own site, not a client demo,
- * and Decision 011's placeholder-image allowance is specifically for client
- * demos, not the agency's own claims. Rather than source or fabricate stock
- * photography, the hero visual is a built browser-mockup card: an honest
- * representation of "a website," not a photo implying anything unverified.
+ * No stock or fabricated photography — this is Summit Studio's own site,
+ * not a client demo, and Decision 011's placeholder-image allowance is
+ * specifically for client demos, not the agency's own claims. The hero
+ * visual is instead a real screenshot of the live Growth-tier portfolio
+ * build (same asset used on /portfolio), framed in a browser-chrome card —
+ * concrete proof of "a real website," not an abstract stand-in for one.
+ * Points at the fictional Summit Studio Landscaping demo, not Martinez —
+ * see the /portfolio data comment on why Martinez can't be shown publicly.
  *
  * Uses a raw <section>, not the shared <Section> wrapper — hero padding
  * needs its own top/bottom rhythm (tighter top, since Navbar is fixed and
@@ -73,7 +77,7 @@ export function Hero() {
   );
 }
 
-/** Abstract "browser window" card — the hero's visual anchor. */
+/** Browser-chrome card framing a real screenshot — the hero's visual anchor. */
 function BrowserMockup() {
   return (
     <div className="relative">
@@ -85,22 +89,20 @@ function BrowserMockup() {
           <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
           <span className="ml-3 h-5 flex-1 rounded-full bg-foreground/5" />
         </div>
-        <div className="space-y-4 p-6 sm:p-8">
-          <div className="h-6 w-2/3 rounded-full bg-secondary/90" />
-          <div className="h-3 w-5/6 rounded-full bg-foreground/10" />
-          <div className="h-3 w-4/6 rounded-full bg-foreground/10" />
-          <div className="mt-6 h-28 rounded-3xl bg-gradient-to-br from-primary/20 to-highlight/20" />
-          <div className="grid grid-cols-3 gap-3">
-            <div className="h-16 rounded-2xl bg-surface-50" />
-            <div className="h-16 rounded-2xl bg-surface-50" />
-            <div className="h-16 rounded-2xl bg-surface-50" />
-          </div>
-          <div className="flex items-center gap-3 pt-2">
-            <div className="h-9 w-28 rounded-full bg-accent" />
-            <div className="h-9 w-24 rounded-full border border-foreground/10" />
-          </div>
+        <div className="relative aspect-[16/10] w-full">
+          <Image
+            src="/images/portfolio/summit-studio-landscaping-growth.jpg"
+            alt="Summit Studio Landscaping homepage, a real Summit Studio Growth-tier build"
+            fill
+            priority
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover object-top"
+          />
         </div>
       </div>
+      <span className="absolute -bottom-4 left-6 rounded-full bg-secondary px-4 py-1.5 text-xs font-semibold text-surface-50 shadow-lift">
+        A real, live build — not a mockup
+      </span>
     </div>
   );
 }

@@ -263,7 +263,7 @@ export const SITE = {
       description:
         'The Starter package shown in full: a simpler gallery, fewer service pages, no service-area matrix — same premium design system, at the entry-level tier.',
       highlights: ['Simplified gallery', 'Core service pages', 'Same premium design system'],
-      url: 'https://demo-ssl-starter.vercel.app',
+      url: 'https://engine.summitstudioagency.com/demo/summit-studio-landscaping-starter',
       image: '/images/portfolio/summit-studio-landscaping-starter.jpg',
     },
     {
@@ -275,7 +275,7 @@ export const SITE = {
       description:
         'The same fictional business as above, rebuilt at the Growth tier: an interactive before/after project gallery, a full services×service-area SEO page matrix, and priority storm-cleanup messaging built for a trade where same-day calls matter.',
       highlights: ['Before/after gallery slider', 'Services × town SEO matrix', 'Priority storm-cleanup banner'],
-      url: 'https://demo-ssl-growth.vercel.app',
+      url: 'https://engine.summitstudioagency.com/demo/summit-studio-landscaping',
       image: '/images/portfolio/summit-studio-landscaping-growth.jpg',
     },
   ] satisfies PortfolioEntry[],

@@ -28,7 +28,7 @@ export function PortfolioPreview() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
           {featured.map((entry, i) => (
             <Reveal key={entry.slug} delay={i * 0.06}>
               <PortfolioCard entry={entry} priority={i === 0} />

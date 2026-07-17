@@ -41,7 +41,7 @@ export default function PortfolioPage() {
       <Section tone="sage" className="pt-0">
         <Container>
           <h2 className="sr-only">Example builds</h2>
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {SITE.portfolio.map((entry, i) => (
               <Reveal key={entry.slug} delay={i * 0.06}>
                 <PortfolioCard entry={entry} priority={i < 2} />

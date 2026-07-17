@@ -20,7 +20,7 @@ export function PricingPreview() {
           align="center"
         />
 
-        <div className="mx-auto mt-14 grid max-w-5xl gap-6 lg:grid-cols-3">
+        <div className="mx-auto mt-14 grid grid-cols-1 max-w-5xl gap-6 lg:grid-cols-3">
           {packages.map((pkg, i) => (
             <Reveal key={pkg.name} delay={i * 0.08}>
               <PricingCard pkg={pkg} />

@@ -89,7 +89,7 @@ export default function PricingPage() {
       <Section tone="sage" className="pt-0">
         <Container>
           <h2 className="sr-only">Pricing packages</h2>
-          <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-3">
+          <div className="mx-auto grid grid-cols-1 max-w-5xl gap-6 lg:grid-cols-3">
             {packages.map((pkg) => (
               <Reveal key={pkg.name}>
                 <PricingCard pkg={pkg} />
@@ -131,11 +131,16 @@ export default function PricingPage() {
                       key={row.option}
                       className={cn('border-b border-foreground/6 last:border-0', i % 2 === 1 && 'bg-surface-50/60')}
                     >
-                      <td className="whitespace-nowrap px-4 py-4 sm:px-6">
-                        <span className={cn('text-sm font-semibold', row.recommended ? 'text-primary' : 'text-secondary')}>
+                      <td className="px-4 py-4 sm:px-6">
+                        <span
+                          className={cn(
+                            'flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-semibold',
+                            row.recommended ? 'text-primary' : 'text-secondary',
+                          )}
+                        >
                           {row.option}
                           {row.recommended && (
-                            <span className="ml-2 rounded-full bg-accent px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-secondary">
+                            <span className="rounded-full bg-accent px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-secondary">
                               Recommended
                             </span>
                           )}

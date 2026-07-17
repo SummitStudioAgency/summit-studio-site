@@ -70,7 +70,7 @@ export default function AboutPage() {
 
       <Section tone="sage">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <SectionHeading
                 eyebrow="The problem"
@@ -127,7 +127,7 @@ export default function AboutPage() {
       <Section tone="sage">
         <Container>
           <SectionHeading eyebrow="What we believe" title="A few operating principles that don’t bend" wide />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {PRINCIPLES.map((p, i) => (
               <Reveal key={p.title} delay={i * 0.06}>
                 <div className="flex gap-4 rounded-4xl border border-foreground/8 bg-background p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/15 hover:shadow-lift">

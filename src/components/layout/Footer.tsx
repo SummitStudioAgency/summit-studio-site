@@ -11,7 +11,7 @@ export function Footer() {
   return (
     <footer className="bg-secondary text-surface-50">
       <Container className="py-20">
-        <div className="grid gap-12 lg:grid-cols-12">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           {/* Brand + pitch */}
           <div className="lg:col-span-5">
             <Logo invert />

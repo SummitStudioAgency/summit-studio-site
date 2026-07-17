@@ -37,13 +37,13 @@ export const DEMOS: DemoEntry[] = [
     packages: [
       {
         tier: 'Growth',
-        url: 'https://demo-martinez-growth.vercel.app',
+        url: 'https://engine.summitstudioagency.com/demo/martinez-landscaping',
         highlights: ['Before/after gallery slider', 'Services × town SEO matrix', 'Emergency-service banner'],
         image: '/images/portfolio/martinez-growth.jpg',
       },
       {
         tier: 'Starter',
-        url: 'https://demo-martinez-starter.vercel.app',
+        url: 'https://engine.summitstudioagency.com/demo/martinez-landscaping-starter',
         highlights: ['Simplified gallery', 'Core service pages', 'Same premium design system'],
         image: '/images/portfolio/martinez-starter.jpg',
       },

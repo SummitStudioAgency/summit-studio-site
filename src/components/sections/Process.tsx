@@ -15,7 +15,7 @@ export function Process() {
           wide
         />
 
-        <ol className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
+        <ol className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
           {SITE.process.map((item, i) => (
             <Reveal key={item.step} as="li" delay={i * 0.06}>
               <div className="flex h-full flex-col rounded-4xl border border-foreground/8 bg-background p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/15 hover:shadow-lift">

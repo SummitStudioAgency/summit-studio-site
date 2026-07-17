@@ -51,7 +51,7 @@ export default function DemoPage({ params }: { params: Params }) {
             }`}
           />
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {demo.packages.map((pkg, i) => (
               <Reveal key={pkg.tier} delay={i * 0.06}>
                 <div className="flex h-full flex-col justify-between overflow-hidden rounded-4xl border border-foreground/8 bg-background shadow-soft">

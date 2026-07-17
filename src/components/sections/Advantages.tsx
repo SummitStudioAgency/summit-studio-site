@@ -15,7 +15,7 @@ export function Advantages() {
           wide
         />
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SITE.advantages.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.05}>
               <div className="h-full rounded-4xl border border-foreground/8 bg-surface-50 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/15 hover:shadow-soft">

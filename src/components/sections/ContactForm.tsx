@@ -159,7 +159,7 @@ export function ContactForm() {
               </p>
             )}
           </div>
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <div>
               <label htmlFor="email" className="mb-2 block text-sm font-medium text-secondary">
                 Email <span className="text-danger">*</span>
@@ -209,7 +209,7 @@ export function ContactForm() {
             <legend className="mb-1 block w-full p-0 text-xs font-semibold uppercase tracking-wider text-muted">
               Your business
             </legend>
-            <div className="grid gap-5 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <div>
                 <label htmlFor="businessName" className="mb-2 block text-sm font-medium text-secondary">
                   Business name

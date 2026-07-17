@@ -37,13 +37,17 @@ export const DEMOS: DemoEntry[] = [
     packages: [
       {
         tier: 'Growth',
-        url: 'https://engine.summitstudioagency.com/demo/martinez-landscaping',
+        // Same-origin — src/middleware.ts transparently proxies this to the
+        // real engine (engine.summitstudioagency.com) so it never appears
+        // in the address bar. See that file's header comment for the
+        // public-slug -> engine-slug mapping this depends on.
+        url: '/demo/martinez-landscaping-growth',
         highlights: ['Before/after gallery slider', 'Services × town SEO matrix', 'Emergency-service banner'],
         image: '/images/portfolio/martinez-growth.jpg',
       },
       {
         tier: 'Starter',
-        url: 'https://engine.summitstudioagency.com/demo/martinez-landscaping-starter',
+        url: '/demo/martinez-landscaping-starter',
         highlights: ['Simplified gallery', 'Core service pages', 'Same premium design system'],
         image: '/images/portfolio/martinez-starter.jpg',
       },

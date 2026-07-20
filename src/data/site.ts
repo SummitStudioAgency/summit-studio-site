@@ -58,7 +58,10 @@ export interface PortfolioEntry {
 
 export interface FAQItem {
   question: string;
-  answer: string;
+  /** A single string renders as one paragraph; an array renders each entry
+   *  as its own paragraph, for answers that lead with a short yes/no before
+   *  explaining. */
+  answer: string | string[];
 }
 
 export const SITE = {
@@ -300,79 +303,134 @@ export const SITE = {
   // ── FAQ ──────────────────────────────────────────────────────────────
   faq: [
     {
-      question: 'How is this so much faster than a typical web agency?',
-      answer:
-        'We work from one proven template system rather than designing every site from a blank page, and we build your demo before any contract exists — so there’s no lengthy discovery phase before you see something real. The finished site still gets a genuine review and revision round; it just doesn’t take months to get there.',
-    },
-    {
       question: 'Do I have to commit to anything before I see my website?',
       answer:
-        'No. We build a working demo first, using information that’s already public about your business. You look at the actual site, on a real link, before you agree to anything.',
+        'No. We build a working demo first using information that’s already public about your business. You’ll receive a real website on a real link before you’re asked to sign anything or pay a dollar. If you don’t like it, there’s no obligation to move forward.',
+    },
+    {
+      question: 'Why is this so much faster than a typical web agency?',
+      answer:
+        'We don’t start every project from a blank page. Instead, we build every website on a proven system we’ve refined specifically for landscaping businesses. That lets us spend time customizing your business instead of rebuilding the same foundations over and over. You still receive revisions before launch — it just doesn’t take months to get there.',
+    },
+    {
+      question: 'Why are your prices lower than most agencies?',
+      answer:
+        'Because we’ve standardized the process instead of reinventing it every time. Most agencies bill dozens of hours for planning, mockups, and custom development before you ever see a website. We skip that overhead by using a proven system and showing you a working demo first.',
+    },
+    {
+      question: 'Will my website look like everyone else’s?',
+      answer:
+        'No. Every site is built on the same design system, but the content, services, service areas, branding, photos, colors, reviews, and messaging are specific to your business. Think of it like homes built from the same architectural plans — each one still feels unique because of how it’s finished.',
     },
     {
       question: 'Are you an established agency, or a new one?',
+      answer: [
+        'We’re new, and we won’t pretend otherwise.',
+        'Rather than asking you to trust years of marketing claims, we’d rather earn your business by showing you real work first. Every prospect receives a working demo before making a decision, so you can judge the quality of the website instead of our age as a company.',
+      ],
+    },
+    {
+      question: 'How long does the real build take once I sign?',
       answer:
-        'We’re new — we haven’t hidden that, and we won’t start now. What that means in practice: every plan is priced the same for our first client as our hundredth, with no early-adopter discount that quietly disappears later, and the whole process is built around proving the work before you commit anything — a real, working demo, not a portfolio and a promise. Judge the actual site we build for you, not a track record.',
+        'Most websites are completed within 3–5 business days after we receive your deposit and everything needed to finish the site, such as photos, logos, or service information.',
+    },
+    {
+      question: 'What does the price include?',
+      answer:
+        'Every website includes a professionally designed mobile-friendly site, hosting, SSL security, contact forms, SEO basics, ongoing support, and one revision round before launch. Higher-tier packages include additional pages and features. Visit the Pricing page for a complete breakdown.',
     },
     {
       question: 'Do I own my website?',
-      answer:
-        'Yes, for Starter and Growth — once the setup fee is paid, the site and its content are yours, and your domain is always yours regardless of plan. Website Care works differently: since there’s no setup fee, the website remains part of the managed service while you’re subscribed, rather than transferring to you outright. Email billing@summitstudioagency.com if you’d rather own a copy of the site on Website Care — we can work out a buyout.',
+      answer: [
+        'Starter and Growth customers do.',
+        'Once the setup fee is paid, you own your website, its content, and your domain.',
+        'Website Care works differently. Because there’s no upfront build fee, the website remains part of the managed service while you’re subscribed. If you’d ever like to purchase ownership of the site, contact us and we’ll work out a buyout.',
+      ],
     },
     {
       question: 'Can I upgrade later?',
-      answer:
-        'Yes. Moving from Starter to Growth costs only the difference between the two setup fees ($1,000) — you already paid for and own the Starter build, so you’re not charged for it twice.',
+      answer: [
+        'Absolutely.',
+        'If you start on Starter and later decide you want Growth, you simply pay the difference between the two setup fees. You never pay for the same work twice.',
+      ],
+    },
+    {
+      question: 'Can I use my existing domain name?',
+      answer: [
+        'Yes.',
+        'If you already own a domain, we’ll use it. If you don’t, we’ll help you register one. Your domain always belongs to you — we never own or control it on your behalf.',
+      ],
+    },
+    {
+      question: 'Can I move my website to another developer later?',
+      answer: [
+        'Yes.',
+        'Your domain is always yours, and on Starter or Growth you own the completed website once your setup fee is paid. If you ever decide to work with another developer, you’re free to move your website wherever you’d like.',
+        'Our internal website-building platform stays with Summit Studio, but your finished website does not.',
+      ],
+    },
+    {
+      question: 'Can I host the website myself?',
+      answer: [
+        'Not while you’re an active customer.',
+        'Hosting, security updates, monitoring, and maintenance are all included in your monthly plan so you don’t have to manage them yourself. If you leave on Starter or Growth, you’re free to move your website to another host.',
+      ],
     },
     {
       question: 'What happens if I cancel Website Care?',
-      answer:
-        'Because Website Care never charged a setup fee, the site stays part of the managed service rather than transferring to you the way a paid-in-full Starter or Growth site does. If you’d like to keep the site instead of continuing the plan, email billing@summitstudioagency.com and we’ll work out a buyout.',
+      answer: [
+        'Website Care doesn’t charge an upfront build fee, so the website remains part of the managed service while you’re subscribed.',
+        'If you decide you’d rather own the website outright, contact us and we’ll discuss a buyout option.',
+      ],
     },
     {
-      question: 'Can I move my site to another developer or host later?',
-      answer:
-        'On Starter and Growth, yes to a real degree — you own your domain independent of us, and once your setup fee is paid in full you own your site’s content and the site as deployed, so you can point your domain elsewhere and take it with you. (Website Care works differently — see “Do I own my website?” above.) What never transfers, on any plan, is the underlying Summit Studio template system itself — the design system and code that power every client’s site. A new developer would be picking up your deployed site, not our internal engine, to build from there.',
+      question: 'What happens if Summit Studio ever closes?',
+      answer: [
+        'Your domain always belongs to you.',
+        'On Starter and Growth, you also own your website once your setup fee has been paid. If Summit Studio were ever to stop operating, you’d still have your website and your domain.',
+      ],
     },
     {
-      question: 'Can I host the site myself instead of through Summit Studio?',
-      answer:
-        'While you’re on an active plan, no — hosting, security, and support are bundled into the monthly fee and managed by us, which is part of what keeps the cost low and your side of it hands-off. Your domain is always yours independent of hosting, though, so you’re never locked in: on Starter or Growth you can point it to any host you choose if you leave. On Website Care, remember it’s the site itself — not just the hosting — that stays part of the managed service unless you buy it out.',
+      question: 'Can you help my business rank higher on Google?',
+      answer: [
+        'Yes — but no one can honestly guarantee rankings.',
+        'Every website is built with SEO best practices from the start, including fast loading speeds, mobile responsiveness, clean page structure, metadata, and service-area targeting. Those things give your business a strong foundation for search visibility.',
+      ],
     },
     {
-      question: 'What happens to my website if Summit Studio ever stops operating?',
-      answer:
-        'Your domain is always yours, regardless of plan or payment status — we never hold it hostage, and that’s true from day one. On Starter and Growth, once your setup fee is paid in full you also own your site’s content and the deployed site itself, so you wouldn’t be left with nothing. We’re a new studio without years of operating history to point to yet, and we’d rather say that plainly than promise something we can’t back up.',
+      question: 'Do you write the content?',
+      answer: [
+        'Yes.',
+        'We build your initial website using publicly available information about your business, then refine everything during the review process with your feedback. You’re never expected to write an entire website from scratch.',
+      ],
     },
     {
-      question: 'What does the price actually include?',
-      answer:
-        'A finished, mobile-responsive website built on the Summit Studio template, with the services and service-area pages your package includes, a working contact form, SEO metadata, hosting and support already bundled into the monthly fee, and a revision round before launch. See the Pricing page for exactly what’s in each plan.',
-    },
-    {
-      question: 'Do you design a custom site, or do I get a template?',
-      answer:
-        'Every site is built on one proven Summit Studio design system rather than designed from a blank page each time — that’s what makes the fast turnaround and fixed pricing possible. Within that system, your site is built from your real business details, services, service area, and photos, not generic placeholder content. It’s a shared system, refined project after project — not a shared site.',
-    },
-    {
-      question: 'Is there a contract for ongoing hosting?',
-      answer:
-        'Starter and Growth are cancel-anytime, no lock-in. Website Care is the one exception — a 12-month agreement, which is what makes its zero-upfront-cost pricing work. A business that feels trapped doesn’t refer anyone else, so we keep that the exception, not the rule.',
+      question: 'Do I need professional photos?',
+      answer: [
+        'No.',
+        'If you already have great photos, we’ll use them. If not, we can start with the best images available and replace them later as you collect better ones.',
+      ],
     },
     {
       question: 'What if I want changes after launch?',
-      answer:
-        'Website Care includes unlimited minor text/image updates. On Starter or Growth, any change — however small — gets a quick, flat-fee or hourly quote before we start, so you always know the cost up front.',
+      answer: [
+        'Website Care includes unlimited minor text and image updates.',
+        'Starter and Growth customers can request changes anytime, and we’ll provide a simple flat-rate or hourly quote before beginning the work.',
+      ],
     },
     {
-      question: 'Do you only build for landscaping businesses?',
-      answer:
-        'Landscaping and lawn care is where we’ve built and proven the process so far. If you run a different single-location home-service business, get in touch — it may already fit, or it’s a short conversation about custom scope.',
+      question: 'Do you only build websites for landscaping companies?',
+      answer: [
+        'Today, landscaping and lawn care businesses are our specialty because that’s where we’ve refined our process the most.',
+        'If you operate another single-location home service business, reach out — we may already be a good fit.',
+      ],
     },
     {
-      question: 'How long does the real build take once I sign on?',
-      answer:
-        'Typically 3–5 business days after your deposit clears and your materials (photos, service details, logo if you have one) are complete — longer if materials arrive late, since the timeline starts from when we have everything, not from the deposit alone.',
+      question: 'Still unsure?',
+      answer: [
+        'That’s exactly why we build the demo first.',
+        'Instead of asking you to trust promises, portfolios, or sales pitches, we’d rather let you review a real website built specifically for your business. If you love it, we’ll talk. If not, there’s no pressure and no obligation.',
+      ],
     },
   ] satisfies FAQItem[],
 } as const;

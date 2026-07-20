@@ -49,7 +49,11 @@ export function FAQAccordion({ items }: { items: ReadonlyArray<FAQItem> }) {
                 className="cursor-pointer overflow-hidden"
                 onClick={() => setOpen(null)}
               >
-                <p className="pb-5 pr-9 pt-0 text-[15px] leading-relaxed text-muted">{item.answer}</p>
+                <div className="space-y-3 pb-5 pr-9 pt-0 text-[15px] leading-relaxed text-muted">
+                  {(Array.isArray(item.answer) ? item.answer : [item.answer]).map((paragraph, j) => (
+                    <p key={j}>{paragraph}</p>
+                  ))}
+                </div>
               </motion.dd>
             )}
           </AnimatePresence>

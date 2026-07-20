@@ -90,7 +90,7 @@ export function generateFaqJsonLd(faqs: ReadonlyArray<FAQItem>): object {
     mainEntity: [...faqs].map((f) => ({
       '@type': 'Question',
       name: f.question,
-      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+      acceptedAnswer: { '@type': 'Answer', text: Array.isArray(f.answer) ? f.answer.join(' ') : f.answer },
     })),
   };
 }

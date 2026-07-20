@@ -58,19 +58,19 @@ export default function AboutPage() {
       <Section tone="paper" className="pb-10 pt-12 sm:pb-14">
         <Container>
           <Breadcrumbs items={crumbs} />
-          <div className="mt-8 max-w-2xl">
+          <div className="mt-8">
             <span className="text-sm font-semibold uppercase tracking-[0.18em] text-highlight">About Summit Studio</span>
-            <h1 className="mt-4 font-display text-display font-semibold text-secondary">
+            <h1 className="mt-4 xl:whitespace-nowrap font-display text-[clamp(1.5rem,4.2vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-secondary">
               A new studio, built around one idea
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted">{SITE.mission}</p>
+            <p className="mt-6 text-[clamp(0.85rem,1.9vw,1.125rem)] leading-relaxed text-muted">{SITE.mission}</p>
           </div>
         </Container>
       </Section>
 
       <Section tone="sage">
         <Container>
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
             <div className="lg:col-span-5">
               <SectionHeading
                 eyebrow="The problem"
@@ -80,16 +80,16 @@ export default function AboutPage() {
             <div className="lg:col-span-7">
               <Reveal delay={0.05}>
                 <ul className="space-y-5 text-[15px] leading-relaxed text-foreground">
-                  <li className="rounded-2xl border border-foreground/8 bg-background p-5 shadow-soft">
+                  <li className="rounded-2xl border border-foreground/8 bg-background p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/15 hover:shadow-lift">
                     No website at all — every search for the service they offer goes to a competitor instead.
                   </li>
-                  <li className="rounded-2xl border border-foreground/8 bg-background p-5 shadow-soft">
+                  <li className="rounded-2xl border border-foreground/8 bg-background p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/15 hover:shadow-lift">
                     An outdated site that doesn’t work properly on a phone, where most local searches happen.
                   </li>
-                  <li className="rounded-2xl border border-foreground/8 bg-background p-5 shadow-soft">
+                  <li className="rounded-2xl border border-foreground/8 bg-background p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/15 hover:shadow-lift">
                     A site that exists but doesn’t actually generate calls or form submissions.
                   </li>
-                  <li className="rounded-2xl border border-foreground/8 bg-background p-5 shadow-soft">
+                  <li className="rounded-2xl border border-foreground/8 bg-background p-5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/15 hover:shadow-lift">
                     An assumption that a real, professional website is too expensive or too slow to get.
                   </li>
                 </ul>
@@ -109,7 +109,7 @@ export default function AboutPage() {
         <Container>
           <SectionHeading eyebrow="Who we build for" title="A focused starting point, not a scattershot" wide />
           <Reveal delay={0.08}>
-            <p className="mt-8 max-w-3xl text-[17px] leading-relaxed text-muted">
+            <p className="mt-8 text-[clamp(0.85rem,1.9vw,1.125rem)] leading-relaxed text-muted">
               {SITE.idealCustomer} See{' '}
               <Link href="/portfolio" className="text-primary underline-offset-2 hover:underline">
                 real example builds

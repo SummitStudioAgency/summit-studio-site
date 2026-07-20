@@ -27,9 +27,11 @@ export default function PortfolioPage() {
       <Section tone="paper" className="pb-10 pt-12 sm:pb-14">
         <Container>
           <Breadcrumbs items={crumbs} />
-          <div className="mt-8 max-w-2xl">
-            <h1 className="font-display text-display font-semibold text-secondary">See the engine in action</h1>
-            <p className="mt-5 text-lg leading-relaxed text-muted">
+          <div className="mt-8">
+            <h1 className="xl:whitespace-nowrap font-display text-[clamp(1.5rem,4.2vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-secondary">
+              See the engine in action
+            </h1>
+            <p className="mt-5 text-[clamp(0.7rem,1.5vw,1.125rem)] leading-relaxed text-muted">
               Every site below is real and live on the Summit Studio template — not a mockup, not a screenshot.
               These are example builds demonstrating the platform, not paying-client engagements — we&rsquo;re
               telling you that directly rather than letting you assume otherwise. Click through and look around.

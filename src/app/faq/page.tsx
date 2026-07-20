@@ -29,11 +29,11 @@ export default function FaqPage() {
       <Section tone="paper" className="pb-10 pt-12 sm:pb-14">
         <Container>
           <Breadcrumbs items={crumbs} />
-          <div className="mt-8 max-w-2xl">
-            <h1 className="font-display text-display font-semibold text-secondary">
+          <div className="mt-8 max-w-4xl">
+            <h1 className="xl:whitespace-nowrap font-display text-[clamp(1.5rem,4.2vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-secondary">
               Frequently asked questions
             </h1>
-            <p className="mt-5 text-lg leading-relaxed text-muted">
+            <p className="mt-5 xl:whitespace-nowrap text-[clamp(0.8rem,1.8vw,1.125rem)] leading-relaxed text-muted">
               Quick, plain answers about pricing, ownership, and how the process actually works. Still have a
               question?{' '}
               <Link href="/contact" className="text-primary underline-offset-2 hover:underline">
@@ -46,7 +46,7 @@ export default function FaqPage() {
       </Section>
 
       <Section tone="sage" className="pt-0">
-        <Container size="narrow">
+        <Container>
           <FAQAccordion items={SITE.faq} />
         </Container>
       </Section>

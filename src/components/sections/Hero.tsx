@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Lock } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
@@ -84,10 +84,16 @@ function BrowserMockup() {
       <div className="absolute -inset-6 -z-10 rounded-5xl bg-gradient-to-br from-primary/10 via-accent/10 to-transparent blur-2xl" aria-hidden="true" />
       <div className="overflow-hidden rounded-4xl border border-foreground/8 bg-background shadow-lift">
         <div className="flex items-center gap-1.5 border-b border-foreground/8 bg-surface-50 px-4 py-3">
-          <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
-          <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
-          <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
-          <span className="ml-3 h-5 flex-1 rounded-full bg-foreground/5" />
+          {/* Real macOS/Safari traffic-light colors -- close, deliberate,
+              browser-chrome (not a generic gray dot), so the screenshot
+              reads as an actual browser window, not an abstract mockup. */}
+          <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
+          <span className="ml-3 flex h-6 flex-1 items-center gap-1.5 rounded-full bg-foreground/5 px-3">
+            <Lock className="h-3 w-3 shrink-0 text-foreground/40" aria-hidden="true" />
+            <span className="truncate text-xs text-foreground/50">www.summitstudioagency.com</span>
+          </span>
         </div>
         <div className="relative aspect-[16/10] w-full">
           <Image

@@ -72,15 +72,15 @@ export default function PricingPage() {
       <Section tone="paper" className="pb-10 pt-12 sm:pb-14">
         <Container>
           <Breadcrumbs items={crumbs} />
-          <div className="mt-8 max-w-2xl">
-            <h1 className="font-display text-display font-semibold text-secondary">
+          <div className="mt-8">
+            <h1 className="xl:whitespace-nowrap font-display text-[clamp(1.5rem,4.2vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-secondary">
               Straightforward pricing, no surprises
             </h1>
-            <p className="mt-5 text-lg leading-relaxed text-muted">
+            <p className="mt-5 xl:whitespace-nowrap text-[clamp(0.85rem,1.8vw,1.08rem)] leading-relaxed text-muted">
               One flat setup fee plus a small monthly fee — or no upfront cost at all on Website Care. No hourly
               billing, no scope creep, no fine print to decode.
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-muted">{SITE.paymentTerms}</p>
+            <p className="mt-3 text-[clamp(0.7rem,1.5vw,0.875rem)] leading-relaxed text-muted">{SITE.paymentTerms}</p>
           </div>
         </Container>
       </Section>

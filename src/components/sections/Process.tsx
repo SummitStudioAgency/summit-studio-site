@@ -10,9 +10,13 @@ export function Process() {
       <Container>
         <SectionHeading
           eyebrow="How it works"
-          title="From first look to live website, without the guesswork"
+          title={
+            <span className="block xl:whitespace-nowrap text-[clamp(1.05rem,2.4vw,2.1rem)]">
+              From first look to live website, without the guesswork
+            </span>
+          }
           intro="The same five steps every time — nothing about your project starts from a blank page."
-          wide
+          maxWidthClassName="max-w-2xl lg:max-w-6xl"
         />
 
         <ol className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">

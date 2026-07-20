@@ -9,7 +9,13 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-secondary text-surface-50">
+    // bg-primary (not bg-secondary) is deliberate: the CTA section every
+    // page ends with just above this (PageCTA, tone="forest" = bg-secondary)
+    // is the exact same near-black green as bg-secondary -- back to back,
+    // with zero visible seam between them. primary is the same forest
+    // family, one step lighter, so the footer still reads as "the dark
+    // closing section" while being visibly distinct from the CTA above it.
+    <footer className="bg-primary text-surface-50">
       <Container className="py-20">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           {/* Brand + pitch */}
@@ -67,12 +73,12 @@ export function Footer() {
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-surface-50/10 pt-8 text-xs text-surface/60 sm:flex-row">
           <p>
             © {year} {SITE.legalName}. All rights reserved. ·{' '}
-            <Link href="/privacy" className="transition-colors hover:text-surface-50">
-              Privacy Policy
+            <Link href="/terms" className="transition-colors hover:text-surface-50">
+              Terms of Service
             </Link>{' '}
             ·{' '}
-            <Link href="/terms" className="transition-colors hover:text-surface-50">
-              Terms
+            <Link href="/privacy" className="transition-colors hover:text-surface-50">
+              Privacy Policy
             </Link>
           </p>
           <span className="text-surface/40">Built on the Summit Studio engine</span>

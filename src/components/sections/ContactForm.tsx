@@ -18,6 +18,11 @@ const fieldBase =
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MIN_PHONE_DIGITS = 10;
 const MAX_PHONE_DIGITS = 15;
+// Matches MAX_MESSAGE in src/app/api/contact/route.ts -- the textarea's
+// own maxLength keeps a browser from ever submitting past what the server
+// would accept anyway, and gives a live counter something real to count
+// down from rather than an arbitrary UI-only number.
+const MAX_MESSAGE = 5000;
 
 function validateFields(name: string, email: string, phone: string): FieldErrors {
   const errors: FieldErrors = {};
@@ -40,6 +45,7 @@ export function ContactForm() {
   // Captured once, at mount — the server compares this to submit time to
   // reject bot-speed submissions.
   const [renderedAt] = useState(() => Date.now());
+  const [messageLength, setMessageLength] = useState(0);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -96,6 +102,7 @@ export function ContactForm() {
 
       setStatus('success');
       form.reset();
+      setMessageLength(0);
     } catch {
       setStatus('error');
       setError(`Something went wrong sending your message. Please email us at ${SITE.email}.`);
@@ -256,15 +263,27 @@ export function ContactForm() {
               </div>
             </div>
             <div>
-              <label htmlFor="message" className="mb-2 block text-sm font-medium text-secondary">
-                Tell us about your business
-              </label>
+              <div className="mb-2 flex items-baseline justify-between gap-3">
+                <label htmlFor="message" className="block text-sm font-medium text-secondary">
+                  Tell us about your business
+                </label>
+                <span
+                  className={cn(
+                    'shrink-0 text-xs tabular-nums',
+                    messageLength >= MAX_MESSAGE ? 'font-medium text-danger' : 'text-muted',
+                  )}
+                >
+                  {messageLength.toLocaleString()} / {MAX_MESSAGE.toLocaleString()}
+                </span>
+              </div>
               <textarea
                 id="message"
                 name="message"
                 rows={4}
+                maxLength={MAX_MESSAGE}
+                onChange={(e) => setMessageLength(e.target.value.length)}
                 placeholder="What do you do, and what's not working about your current website (if you have one)?"
-                className={cn(fieldBase, 'resize-y')}
+                className={cn(fieldBase, 'resize-none')}
               />
             </div>
           </fieldset>

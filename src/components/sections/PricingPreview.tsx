@@ -15,9 +15,17 @@ export function PricingPreview() {
       <Container>
         <SectionHeading
           eyebrow="Pricing"
-          title="Clear pricing, built around your investment"
-          intro="A setup fee plus a small monthly fee for most businesses — or no upfront cost at all on Website Care. Anything else is a quick custom quote."
-          align="center"
+          title={
+            <span className="block xl:whitespace-nowrap text-[clamp(1.15rem,2.6vw,2.1rem)]">
+              Clear pricing, built around your investment
+            </span>
+          }
+          intro={
+            <span className="block xl:whitespace-nowrap text-[clamp(0.85rem,1.7vw,1.125rem)]">
+              A setup fee plus a small monthly fee for most businesses — or no upfront cost at all on Website Care. Anything else is a quick custom quote.
+            </span>
+          }
+          maxWidthClassName="max-w-2xl lg:max-w-6xl"
         />
 
         <div className="mx-auto mt-14 grid grid-cols-1 max-w-5xl gap-6 lg:grid-cols-3">

@@ -4,12 +4,20 @@ import { Reveal } from './Reveal';
 interface SectionHeadingProps {
   eyebrow: string;
   title: React.ReactNode;
-  intro?: string;
+  intro?: React.ReactNode;
   align?: 'left' | 'center';
   /** Use light colors over the dark forest background. */
   invert?: boolean;
   className?: string;
   wide?: boolean;
+  /**
+   * Fully replaces the default/`wide` max-width instead of being merged
+   * with it -- `cn()` here is a plain class-join (no tailwind-merge), so
+   * appending a second conflicting `max-w-*` via `className` would leave
+   * both classes in the DOM with an unpredictable winner. Use this prop
+   * instead whenever a heading needs more room than `wide` provides.
+   */
+  maxWidthClassName?: string;
 }
 
 /**
@@ -26,11 +34,12 @@ export function SectionHeading({
   invert = false,
   className,
   wide = false,
+  maxWidthClassName,
 }: SectionHeadingProps) {
   return (
     <div
       className={cn(
-        wide ? 'max-w-2xl lg:max-w-4xl' : 'max-w-2xl',
+        maxWidthClassName ?? (wide ? 'max-w-2xl lg:max-w-4xl' : 'max-w-2xl'),
         align === 'center' && 'mx-auto text-center',
         className,
       )}

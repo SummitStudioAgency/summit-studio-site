@@ -10,7 +10,7 @@ export function FAQAccordion({ items }: { items: ReadonlyArray<FAQItem> }) {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <dl className="mx-auto mt-4 max-w-3xl space-y-3">
+    <dl className="mt-4 space-y-3">
       {items.map((item, i) => (
         <div
           key={i}

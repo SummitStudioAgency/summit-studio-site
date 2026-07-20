@@ -1,16 +1,17 @@
 import type { Metadata } from 'next';
-import { Fraunces, Hanken_Grotesk } from 'next/font/google';
+import { Playfair_Display, Hanken_Grotesk } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { SITE } from '@/data/site';
 import { generateOrganizationJsonLd } from '@/lib/seo';
 
-const fraunces = Fraunces({
+const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-display',
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  style: ['normal', 'italic'],
 });
 
 const hanken = Hanken_Grotesk({
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${hanken.variable}`}>
+    <html lang="en" className={`${playfairDisplay.variable} ${hanken.variable}`}>
       <body>
         <a href="#main" className="skip-link">
           Skip to content

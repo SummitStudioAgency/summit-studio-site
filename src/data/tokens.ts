@@ -74,12 +74,20 @@ export const TOKENS = {
     radius: 'rounded-full',
   },
 
-  // Same pairing as the client engine — a soft optical serif for display,
-  // a clean grotesque for body. Reusing the exact fonts is what makes this
-  // read as "the same design language" rather than just a similar layout.
+  // Same pairing as the client engine — an elegant, high-contrast serif
+  // for display, a clean grotesque for body. Reusing the exact fonts is
+  // what makes this read as "the same design language" rather than just a
+  // similar layout. Fraunces was replaced 2026-07-21 — its variable-font
+  // "WONK" axis defaults on and gives the lowercase "f" (and, less
+  // severely, capital letters like "J") a decorative curl at heading
+  // sizes that reads as unintentional rather than a deliberate flourish
+  // (tracked as SSA-engine's QA-02, never fixed) — swapped for Playfair
+  // Display instead of adding a WONK-axis CSS override, per an explicit
+  // choice to move away from Fraunces's letterforms entirely, not just
+  // tune them.
   fonts: {
     display: {
-      family: 'Fraunces',
+      family: 'Playfair Display',
       cssVariable: '--font-display',
       fallback: ['Georgia', 'serif'],
     },
